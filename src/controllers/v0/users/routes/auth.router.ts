@@ -17,13 +17,6 @@ async function generatePassword(plainTextPassword: string): Promise<string> {
     const saltRounds = 10;
     const salt = await bcrypt.genSalt(saltRounds);
     const hash = await bcrypt.hash(plainTextPassword, salt);
-    /*
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-        bcrypt.hash(myPlaintextPassword, salt, function (err, hash) {
-            // Store hash in your password DB.
-        });
-    });
-    */
     return hash;
 }
 
